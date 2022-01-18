@@ -2,9 +2,6 @@ package com.timberbase.sawmill.api.dto;
 
 import com.timberbase.common.ResultCode;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class SawmillResultCodes {
     public static final String SAWMILL_CREATED_CODE = "sawmill/sawmill_created";
     public static final String SAWMILL_CREATED_DESCRIPTION = "sawmill created";
@@ -41,11 +38,4 @@ public class SawmillResultCodes {
             .code(SAWMILL_DETAILS_UPDATED_CODE)
             .description(SAWMILL_DETAILS_UPDATED_DESCRIPTION)
             .build();
-
-    public static final List<ResultCode> ALL_RESULT_CODES = Arrays.asList(
-            SAWMILL_CREATED,
-            INVALID_SAWMILL,
-            SAWMILL_NOT_FOUND,
-            SAWMILL_DETAILS_UPDATED
-            );
 }

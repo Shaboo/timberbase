@@ -4,7 +4,6 @@ RUN apk add --no-cache nss
 WORKDIR /opt/sawmill
 
 ENV JAVA_OPTS ""
-ENV SPRING_PROFILES_ACTIVE ""
 
 COPY ./target/sawmill*.jar sawmill.jar
 

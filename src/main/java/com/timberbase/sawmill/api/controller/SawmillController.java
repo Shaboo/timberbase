@@ -50,19 +50,6 @@ public class SawmillController {
                 .build());
     }
 
-    @GetMapping("/sawmill/{id}")
-    public ResponseEntity<GetSawmillResp> getSawmillByName(@PathVariable Long id) {
-        Either<ResultCode, GetSawmillResp> errorOrSawmillResp = sawmillService.findSawmillById(id);
-
-        if (errorOrSawmillResp.isLeft()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(GetSawmillResp.builder()
-                            .resultCode(errorOrSawmillResp.getLeft())
-                    .build());
-        }
-
-        return ResponseEntity.ok(errorOrSawmillResp.get());
-    }
-
     @PutMapping("/sawmill/{id}")
     public ResponseEntity<UpdateSawmillResp> updateSawmill(@PathVariable Long id,
                                                            @RequestBody @Validated UpdateSawmillReq updateSawmillReq) {
@@ -87,6 +74,19 @@ public class SawmillController {
                 .build();
 
         return ResponseEntity.ok(resp);
+    }
+
+    @GetMapping("/sawmill/{id}")
+    public ResponseEntity<GetSawmillResp> getSawmillByName(@PathVariable Long id) {
+        Either<ResultCode, GetSawmillResp> errorOrSawmillResp = sawmillService.findSawmillById(id);
+
+        if (errorOrSawmillResp.isLeft()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(GetSawmillResp.builder()
+                            .resultCode(errorOrSawmillResp.getLeft())
+                    .build());
+        }
+
+        return ResponseEntity.ok(errorOrSawmillResp.get());
     }
 
     @GetMapping("/sawmill")

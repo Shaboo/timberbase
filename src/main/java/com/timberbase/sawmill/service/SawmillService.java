@@ -11,7 +11,6 @@ import com.timberbase.sawmill.repository.SawmillRepository;
 import io.vavr.control.Either;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -86,7 +85,7 @@ public class SawmillService {
                  .collect(Collectors.toList());
     }
 
-    public SawmillDto toSawmillDto(SawmillModel model) {
+    private SawmillDto toSawmillDto(SawmillModel model) {
         return SawmillDto.builder()
                 .id(model.getId())
                 .city(model.getCity())
